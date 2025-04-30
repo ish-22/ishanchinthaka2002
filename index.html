@@ -12,7 +12,7 @@
             background-color: #f3f4f6;
         }
         .section {
-            padding: 4rem 2rem;
+            padding: 3rem 1rem;
         }
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -27,6 +27,36 @@
         .navbar.scrolled {
             background-color: #1f2937;
         }
+        /* Mobile menu styles */
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .section {
+                padding: 2rem 0.5rem;
+            }
+            .project-card {
+                margin-bottom: 1rem;
+            }
+            .text-4xl {
+                font-size: 2rem;
+            }
+            .text-3xl {
+                font-size: 1.75rem;
+            }
+            .text-xl {
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -34,21 +64,34 @@
     <nav class="navbar fixed top-0 w-full bg-gray-800 text-white p-4 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold">Ishan Chinthaka</h1>
-            <ul class="flex space-x-6">
+            <!-- Desktop Menu -->
+            <ul class="desktop-menu flex space-x-6">
                 <li><a href="#home" class="hover:text-gray-300">Home</a></li>
                 <li><a href="#about" class="hover:text-gray-300">About</a></li>
                 <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
                 <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
                 <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
             </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="mobile-menu md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
+        <!-- Mobile Menu -->
+        <ul id="mobile-menu" class="mobile-menu hidden md:hidden bg-gray-800 w-full mt-4 space-y-4 text-center">
+            <li><a href="#home" class="block py-2 hover:text-gray-300">Home</a></li>
+            <li><a href="#about" class="block py-2 hover:text-gray-300">About</a></li>
+            <li><a href="#skills" class="block py-2 hover:text-gray-300">Skills</a></li>
+            <li><a href="#projects" class="block py-2 hover:text-gray-300">Projects</a></li>
+            <li><a href="#contact" class="block py-2 hover:text-gray-300">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="section bg-gray-900 text-white text-center">
         <div class="container mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
-            <p class="text-lg md:text-xl mb-6">Ishan Chinthaka - Intern Web Developer</p>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
+            <p class="text-base sm:text-lg md:text-xl mb-6">Ishan Chinthaka - Intern Web Developer</p>
             <a href="#projects" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700">View Projects</a>
         </div>
     </section>
@@ -56,21 +99,19 @@
     <!-- About Section -->
     <section id="about" class="section bg-white">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-6 md:mb-0">
-                    <p class="text-gray-700 leading-relaxed">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">About Me</h2>
+            <div class="flex flex-col items-center">
+                <div class="mb-6">
+                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
                         I am a highly focused, motivated, and analytical individual with a strong passion for challenges and problem-solving. I thrive in dynamic environments and am always eager to explore new growth opportunities. Currently pursuing a Higher Diploma in Computing and Software Engineering at Cardiff Metropolitan University (via ICBT Campus, Sri Lanka).
                     </p>
                 </div>
-                <div class="md:w-1/2 text-center">
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-2">Personal Info</h3>
-                        <p><strong>Name:</strong> Wanni Arachchi Kankanamge Ishan Chinthaka</p>
-                        <p><strong>Date of Birth:</strong> 22nd August 2002</p>
-                        <p><strong>Gender:</strong> Male</p>
-                        <p><strong>Marital Status:</strong> Single</p>
-                    </div>
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg w-full sm:w-3/4">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Personal Info</h3>
+                    <p class="text-sm sm:text-base"><strong>Name:</strong> Wanni Arachchi Kankanamge Ishan Chinthaka</p>
+                    <p class="text-sm sm:text-base"><strong>Date of Birth:</strong> 22nd August 2002</p>
+                    <p class="text-sm sm:text-base"><strong>Gender:</strong> Male</p>
+                    <p class="text-sm sm:text-base"><strong>Marital Status:</strong> Single</p>
                 </div>
             </div>
         </div>
@@ -79,11 +120,11 @@
     <!-- Skills Section -->
     <section id="skills" class="section bg-gray-100">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Skills</h2>
+            <div class="grid grid-cols-1 gap-6">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
-                    <ul class="list-disc pl-6 text-gray-700">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Technical Skills</h3>
+                    <ul class="list-disc pl-6 text-gray-700 text-sm sm:text-base">
                         <li>Languages: Java, Python, C++, JavaScript, HTML, PHP, CSS, Kotlin</li>
                         <li>Databases: MySQL, SQLite, MongoDB</li>
                         <li>IDEs: Visual Studio, Android Studio, NetBeans, DevC++</li>
@@ -91,8 +132,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">General Skills</h3>
-                    <ul class="list-disc pl-6 text-gray-700">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">General Skills</h3>
+                    <ul class="list-disc pl-6 text-gray-700 text-sm sm:text-base">
                         <li>Team leadership and collaboration</li>
                         <li>Time management</li>
                         <li>Financial trend analysis and resource optimization</li>
@@ -106,37 +147,37 @@
     <!-- Projects Section -->
     <section id="projects" class="section bg-white">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Projects</h2>
+            <div class="grid grid-cols-1 gap-6">
                 <!-- Country Cafe Website -->
-                <div class="project-card bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Country Cafe Website</h3>
-                    <p class="text-gray-700 mb-4">A visually appealing website built using HTML, CSS, JavaScript, MySQL, and PHP. Features include navigation menus, cafe information, and an online ordering system.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript, MySQL, PHP</p>
+                <div class="project-card bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Country Cafe Website</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">A visually appealing website built using HTML, CSS, JavaScript, MySQL, and PHP. Features include navigation menus, cafe information, and an online ordering system.</p>
+                    <p class="text-sm sm:text-base"><strong>Technologies:</strong> HTML, CSS, JavaScript, MySQL, PHP</p>
                 </div>
                 <!-- Cosmetic Store Inventory Management -->
-                <div class="project-card bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Cosmetic Store Inventory Management</h3>
-                    <p class="text-gray-700 mb-4">A Java-based system utilizing OOP principles for modular code and robust error handling to manage inventory efficiently.</p>
-                    <p><strong>Technologies:</strong> Java</p>
+                <div class="project-card bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Cosmetic Store Inventory Management</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">A Java-based system utilizing OOP principles for modular code and robust error handling to manage inventory efficiently.</p>
+                    <p class="text-sm sm:text-base"><strong>Technologies:</strong> Java</p>
                 </div>
                 <!-- FitZone Fitness Center Website -->
-                <div class="project-card bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">FitZone Fitness Center Website</h3>
-                    <p class="text-gray-700 mb-4">A dynamic website with navigation menus, fitness program details, and an online membership registration system, built using HTML, CSS, JavaScript, MySQL, and PHP.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript, MySQL, PHP</p>
+                <div class="project-card bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">FitZone Fitness Center Website</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">A dynamic website with navigation menus, fitness program details, and an online membership registration system, built using HTML, CSS, JavaScript, MySQL, and PHP.</p>
+                    <p class="text-sm sm:text-base"><strong>Technologies:</strong> HTML, CSS, JavaScript, MySQL, PHP</p>
                 </div>
                 <!-- LuxeVista Resort App -->
-                <div class="project-card bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">LuxeVista Resort Mobile App</h3>
-                    <p class="text-gray-700 mb-4">A mobile app for room bookings and service reservations, featuring user authentication and a sleek design, built using Java and SQLite.</p>
-                    <p><strong>Technologies:</strong> Java, SQLite</p>
+                <div class="project-card bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">LuxeVista Resort Mobile App</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">A mobile app for room bookings and service reservations, featuring user authentication and a sleek design, built using Java and SQLite.</p>
+                    <p class="text-sm sm:text-base"><strong>Technologies:</strong> Java, SQLite</p>
                 </div>
                 <!-- LuxeVista Resort UI/UX Design -->
-                <div class="project-card bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">LuxeVista Resort UI/UX Design</h3>
-                    <p class="text-gray-700 mb-4">Designed a user-friendly interface for the LuxeVista Resort app using Figma and XML, enhancing guest experience with intuitive navigation.</p>
-                    <p><strong>Tools:</strong> Figma, XML</p>
+                <div class="project-card bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">LuxeVista Resort UI/UX Design</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">Designed a user-friendly interface for the LuxeVista Resort app using Figma and XML, enhancing guest experience with intuitive navigation.</p>
+                    <p class="text-sm sm:text-base"><strong>Tools:</strong> Figma, XML</p>
                 </div>
             </div>
         </div>
@@ -145,29 +186,29 @@
     <!-- Contact Section -->
     <section id="contact" class="section bg-gray-900 text-white">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Contact Me</h2>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8">Contact Me</h2>
+            <div class="flex flex-col space-y-4">
                 <div>
-                    <p><i class="fas fa-phone mr-2"></i> +94-765274750 / +94-752464420</p>
-                    <p><i class="fas fa-envelope mr-2"></i> ishanchinthaka2002@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i> 320/B, Kuruduwaththa, Meetiyagoda</p>
+                    <p class="text-sm sm:text-base"><i class="fas fa-phone mr-2"></i> +94-765274750 / +94-752464420</p>
+                    <p class="text-sm sm:text-base"><i class="fas fa-envelope mr-2"></i> ishanchinthaka2002@gmail.com</p>
+                    <p class="text-sm sm:text-base"><i class="fas fa-map-marker-alt mr-2"></i> 320/B, Kuruduwaththa, Meetiyagoda</p>
                 </div>
                 <div>
-                    <p><i class="fab fa-linkedin mr-2"></i> <a href="https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank" class="underline">LinkedIn Profile</a></p>
+                    <p class="text-sm sm:text-base"><i class="fab fa-linkedin mr-2"></i> <a href="https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="underline">LinkedIn Profile</a></p>
                 </div>
             </div>
             <div class="mt-8">
-                <h3 class="text-xl font-semibold mb-4">References</h3>
-                <p>I.G Udayangani Dhanushika, IT Lecturer</p>
-                <p><i class="fas fa-phone mr-2"></i> 0778106989</p>
-                <p><i class="fas fa-envelope mr-2"></i> danushikaudayangani7@gmail.com</p>
+                <h3 class="text-lg sm:text-xl font-semibold mb-4">References</h3>
+                <p class="text-sm sm:text-base">I.G Udayangani Dhanushika, IT Lecturer</p>
+                <p class="text-sm sm:text-base"><i class="fas fa-phone mr-2"></i> 0778106989</p>
+                <p class="text-sm sm:text-base"><i class="fas fa-envelope mr-2"></i> danushikaudayangani7@gmail.com</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white text-center py-4">
-        <p>&copy; 2025 Ishan Chinthaka. All rights reserved.</p>
+        <p class="text-sm sm:text-base">© 2025 Ishan Chinthaka. All rights reserved.</p>
     </footer>
 
     <script>
@@ -188,7 +229,17 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Close mobile menu after clicking
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.add('hidden');
             });
+        });
+
+        // Toggle mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
